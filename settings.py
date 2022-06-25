@@ -13,6 +13,8 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = 'REPLACE_ME'
 
+DEBUG = True
+
 TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
