@@ -13,11 +13,13 @@ from datacenter.models import Visit, Passcard  # noqa: E402
 
 def main():
     reset_queries()
-    remaining_visits = Visit.objects.filter(leaved_at=None)
+    passcard = Passcard.objects.all()[25]
+    visits = Visit.objects.filter(passcard=passcard)
 
     print('\n')
-    for visit in remaining_visits:
-        print(visit.passcard)
+    print(visits)
+    # for visit in remaining_visits:
+    #     print(visit.passcard.owner_name)
     #     now = localtime()
     #     entry = localtime(visit.entered_at)
     #     period = now - entry
@@ -29,8 +31,12 @@ def main():
     #         sep='\n'
     #     )
 
+    for query in connection.queries:
+        print('\n')
+        pprint(query)
+    # pprint(connection.queries[0])
+
     print('\n')
-    pprint(connection.queries[0])
 
 
 if __name__ == '__main__':
